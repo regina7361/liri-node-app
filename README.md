@@ -30,6 +30,12 @@ LIRI is a Language Interpretation and Recognition Interface and will be used as 
 
 ![Movie-this](images/moviethis.png)
 
+**To get a list of concerts for your favorite band run the following command:**
+
+    node liri.js concert-this <enter a band choice>
+
+![Concert-this](images/concertthis.png)
+
 **Run the below command to read from the random.text file:**
 
     node liri.js do-what-it-says
