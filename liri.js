@@ -19,6 +19,9 @@ var Spotify = require('node-spotify-api');
 //access to spotify api
 var spotify = new Spotify(keys.spotify);
 
+//access OMDB api
+//let omdb = (keys.omdb);
+
 //grab user command and input
 let userInput = process.argv[2];
 let userQuery = process.argv.slice(3).join(" ");
@@ -101,7 +104,7 @@ function spotifyThisSong() {
 
         //use for loops to access data from array
         for(i=0; i < spotifyArr.length; i++) {
-            console.log(`\nHere are the query results - \n\nArtist: ${data.tracks.items[i].album.artists[0].name} \nSong: ${data.tracks.items[i].name}\nAlbum: ${data.tracks.items[i].album.name}\nSpotify link: ${data.tracks.items[i].external_urls.spotify}\n\n - - - - -`)
+            console.log(`\nHere are the query results - \n\nArtist: ${data.tracks.items[i].album.artists[0].name} \nSong: ${data.tracks.items[i].name}\nAlbum: ${data.tracks.items[i].album.name}\nSpotify link: ${data.tracks.items[i].external_urls.spotify}\n\n------------`)
         };
     });
 }
@@ -121,7 +124,7 @@ function movieThis() {
         if (ratingsArr.length > 2) {}
 
         if (!error && response.statusCode === 200) {
-            console.log(`\nHere are your results... \n\nTitle: ${userMovie.Title}\nCast: ${userMovie.Actors}\nReleased: ${userMovie.Year}\nIMDb Rating: ${userMovie.imdbRating}\nRotten Tomatoes Rating: ${userMovie.Ratings[1].Value}\nCountry: ${userMovie.Country}\nLanguage: ${userMovie.Language}\nPlot: ${userMovie.Plot}\n\n- - - - -`)
+            console.log(`\nHere are your results... \n\nTitle: ${userMovie.Title}\nCast: ${userMovie.Actors}\nReleased: ${userMovie.Year}\nIMDb Rating: ${userMovie.imdbRating}\nRotten Tomatoes Rating: ${userMovie.Ratings[1].Value}\nCountry: ${userMovie.Country}\nLanguage: ${userMovie.Language}\nPlot: ${userMovie.Plot}\n\n------------`)
         } else {
             return console.log("Movie able to be found. Error:" + error)
         };
@@ -136,15 +139,12 @@ function doThis() {
         }
         // CATCH DATA AND USE THE .SPLIT() METHOD TO SEPARATE OBJECTS WITHIN OUR NEW ARRAY
         let dataArr = data.split(",");
-        console.log(dataArr);
+
         // TAKE OBJECTS FROM RANDOM.TXT TO PASS AS PARAMETERS
         userInput = dataArr[0];
         userQuery = dataArr[1];
 
-        userInput = dataArr[2];
-        userQuery = dataArr[3];
-
+        // CALL OUR FUNCTION WITH OUR NEW PARAMETERS...
         userCommand(userInput, userQuery);
-        
     });
 };
