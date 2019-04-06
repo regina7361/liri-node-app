@@ -19,7 +19,10 @@ LIRI is a Language Interpretation and Recognition Interface and will be used as 
 
 ## To Run The Program
 **To get a list of Spotify songs run the following command:**
+
     node liri.js spotify-this-song <enter a song choice>
+
+![Spotify-this](images/spotifythissong.png)
 
 ## Languages & tools
 
