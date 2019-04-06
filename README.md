@@ -24,6 +24,18 @@ LIRI is a Language Interpretation and Recognition Interface and will be used as 
 
 ![Spotify-this](images/spotifythissong.png)
 
+**To get a list of movies from OMDB run the following command:**
+
+    node liri.js movie-this <enter a movie choice>
+
+![Movie-this](images/moviethis.png)
+
+**To get a list of concerts for your favorite band run the following command:**
+
+    node liri.js concert-this <enter a band choice>
+
+![Concert-this](images/concertthis.png)
+
 ## Languages & tools
 
 - [Node.js](https://nodejs.org/en/)
