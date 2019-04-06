@@ -19,9 +19,6 @@ var Spotify = require('node-spotify-api');
 //access to spotify api
 var spotify = new Spotify(keys.spotify);
 
-//access OMDB api
-//let omdb = (keys.omdb);
-
 //grab user command and input
 let userInput = process.argv[2];
 let userQuery = process.argv.slice(3).join(" ");
@@ -94,7 +91,7 @@ function spotifyThisSong() {
     spotify.search({
         type: 'track',
         query: userQuery,
-        limit: 1
+        limit: 10
     }, function (error, data) {
         if (error) {
             return console.log('Error occurred: ' + error);
