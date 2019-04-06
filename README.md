@@ -9,13 +9,12 @@ Install from the command line:
 
     git clone git@github.com:regina7361/liri-node-app.git
 
+After navigating into the folder
 
+    npm install
 
-```
+    npm init -y
 
-$ npm install
-
-```
 
 ## Languages & tools
 
