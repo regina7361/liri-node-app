@@ -1,6 +1,8 @@
 //Require .env file
 require("dotenv").config();
 
+let axios = require("axios");
+
 //Require request
 let request = require("request");
 
@@ -53,28 +55,18 @@ userCommand(userInput, userQuery);
 function concertThis() {
     console.log(`\n------------\n\nSEARCHING FOR..."${userQuery}"`);
     //Hit this api request and insert user query variable for parameter search
-    request("https://rest.bandsintown.com/artists/" + userQuery + "/events?app_id=codingbootcamp",
-    function (error, response, body){
-        //if there is no error and response returns a 200 success
-        if (!error && response.statusCode === 200) {
-            //capture data and use json to parse data
-            let userBand = JSON.parse(body);
-            //use for loop to access data paths
-            if (userBand.length > 0) {
-                for (i = 0; i < 1; i++) {
-
-                    //console selected data
-                    console.log(`Here are your results... \n\nArtist: ${userBand[i].lineup[0]} \nVenue: ${userBand[i].venue.name} \nVenue Location: ${userBand[i].venue.latitude},${userBand[i].venue.longitude} \nVenue City: ${userBand[i].venue.city}, ${userBand[i].venue.country}`)
-                    
-                    //use moment to format date
-                    let concertDate = moment(userBand[i].datetime).format("MM/DD/YYYY hh:00 A");
-                    console.log(`Date and Time: ${concertDate}\n\n---------------`);
-                };
-            } else {
-                //console if a concert is not found
-                console.log('Concert not found!');
-            };
-        };
+    axios.get("https://rest.bandsintown.com/artists/" + userQuery + "/events?app_id=codingbootcamp").then(
+    function (response){
+        //console.log(response.data[0]);
+        if (response.data[0]) {
+        console.log(`Here are your results... \n\nArtist: ${userQuery} \nVenue: ${response.data[0].venue.name} \nVenue Location: ${response.data[0].venue.city}, ${response.data[0].venue.region}`);
+        
+        //use moment to format date and time
+        let concertDate = moment(response.data[0].datetime).format("MM/DD/YYYY hh:00 A");
+        console.log(`Date and Time: ${concertDate}\n\n---------------`);
+        } else if (response.data[0] === undefined) {
+           console.log("Concert Not Found!")
+         };
     });
 };
 

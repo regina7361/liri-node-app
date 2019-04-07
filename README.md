@@ -13,10 +13,6 @@ LIRI is a Language Interpretation and Recognition Interface and will be used as 
 
     npm install
 
-**Initiate package.json**
-
-    npm init -y
-
 ## To Run The Program
 **To get a list of Spotify songs run the following command:**
 
@@ -51,3 +47,11 @@ LIRI is a Language Interpretation and Recognition Interface and will be used as 
 - [Axios](https://github.com/axios/axios)
 
 - [Spotify](https://developer.spotify.com/)
+
+- [Request](https://www.npmjs.com/package/request)
+
+- [Moment](https://www.npmjs.com/package/moment)
+
+- [DotEnv](https://www.npmjs.com/package/dotenv)
+
+
